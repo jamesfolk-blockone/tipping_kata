@@ -81,7 +81,7 @@ CONTRACT tipping : public contract {
        * @memo - the memo string that accompanies the token issue transaction.
        */
        [[eosio::action]]
-       void issue( const name& to, const asset& quantity, const string& memo );
+       void deposit( const name& to, const asset& quantity, const string& memo );
 
        /**
        * Transfer action.
@@ -95,22 +95,31 @@ CONTRACT tipping : public contract {
        * @param memo - the memo string to accompany the transaction.
        */
        [[eosio::action]]
-       void transfer( const name&    from,
+       void withdraw( const name&    from,
                       const name&    to,
                       const asset&   quantity,
                       const string&  memo );
 
-       using hi_action = action_wrapper<"hi"_n, &tipping::hi>;
+        [[eosio::action]]
+        void tip( const name&    from,
+                   const name&    to,
+                   const asset&   quantity,
+                   const string&  memo );
+
+        using hi_action = action_wrapper<"hi"_n, &tipping::hi>;
 
 
-       using create_action = eosio::action_wrapper<"create"_n, &tipping::create>;
-       using retire_action = eosio::action_wrapper<"retire"_n, &tipping::retire>;
+        using create_action = eosio::action_wrapper<"create"_n, &tipping::create>;
+        using retire_action = eosio::action_wrapper<"retire"_n, &tipping::retire>;
 
-       using open_action = eosio::action_wrapper<"open"_n, &tipping::open>;
-       using close_action = eosio::action_wrapper<"close"_n, &tipping::close>;
+        using open_action = eosio::action_wrapper<"open"_n, &tipping::open>;
+        using close_action = eosio::action_wrapper<"close"_n, &tipping::close>;
 
-       using issue_action = eosio::action_wrapper<"issue"_n, &tipping::issue>;
-       using transfer_action = eosio::action_wrapper<"transfer"_n, &tipping::transfer>;
+        using deposit_action = eosio::action_wrapper<"deposit"_n, &tipping::deposit>;
+        using withdraw_action = eosio::action_wrapper<"withdraw"_n, &tipping::withdraw>;
+
+        using tip_action = eosio::action_wrapper<"tip"_n, &tipping::tip>;
+
 private:
     struct [[eosio::table]] account {
         asset    balance;

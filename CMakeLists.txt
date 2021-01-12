@@ -1,7 +1,12 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(tipping)
+
+
 include(ExternalProject)
 # if no cdt root is given use default path
 if(EOSIO_CDT_ROOT STREQUAL "" OR NOT EOSIO_CDT_ROOT)
-   find_package(eosio.cdt)
+   find_package(eosio.cdt PATHS ${CMAKE_SOURCE_DIR}/../../eosio.cdt/build)
 endif()
 
 ExternalProject_Add(
@@ -15,3 +20,16 @@ ExternalProject_Add(
    INSTALL_COMMAND ""
    BUILD_ALWAYS 1
 )
+
+
+ExternalProject_Add(
+        kata1_test_project
+        SOURCE_DIR ${CMAKE_SOURCE_DIR}/tests
+        BINARY_DIR ${CMAKE_BINARY_DIR}/tests
+        CMAKE_ARGS -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DEOSIO_ROOT=${EOSIO_ROOT} -DEOSIO_DEPENDENCY=${EOSIO_DEPENDENCY}
+        TEST_COMMAND ./kata1_test --color_output  --log_level=all -- --verbose
+        INSTALL_COMMAND ""
+        BUILD_ALWAYS 1
+)
+
+add_dependencies( kata1_test_project tipping_project)
