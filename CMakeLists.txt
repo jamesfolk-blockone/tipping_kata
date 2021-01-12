@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 3.5)
-
 project(tipping)
 
+cmake_minimum_required(VERSION 3.5)
 
 include(ExternalProject)
 # if no cdt root is given use default path
 if(EOSIO_CDT_ROOT STREQUAL "" OR NOT EOSIO_CDT_ROOT)
    find_package(eosio.cdt PATHS ${CMAKE_SOURCE_DIR}/../../eosio.cdt/build)
 endif()
+message("EOSIO_CDT_ROOT = ${EOSIO_CDT_ROOT}")
 
 ExternalProject_Add(
    tipping_project
@@ -32,4 +32,5 @@ ExternalProject_Add(
         BUILD_ALWAYS 1
 )
 
+# message(FATAL_ERROR "EOSIO_DEPENDENCY ${EOSIO_ROOT}")
 add_dependencies( kata1_test_project tipping_project)
