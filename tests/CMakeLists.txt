@@ -12,16 +12,16 @@ find_package(eosio PATHS ~/eosio/eos/build)
 # endif()
 #
 # set( EOSIO_ROOT "../../../" )
-# configure_file( ${CMAKE_SOURCE_DIR}/contracts.hpp.in ${CMAKE_BINARY_DIR}/contracts.hpp )
-# enable_testing()
+configure_file( ${CMAKE_SOURCE_DIR}/contracts.hpp.in ${CMAKE_BINARY_DIR}/contracts.hpp )
+enable_testing()
 # message("EOSIO.CDT dir = ${EOSIO_CDT_ROOT}")
-# include_directories( ${CMAKE_BINARY_DIR}
-#                      ${EOSIO_ROOT}/eosio.contracts/contracts/eosio.token/include
-#                      ${CMAKE_SOURCE_DIR}/../include
-#                      ${EOSIO_CDT_ROOT}/opt/eosio.cdt/include/eosiolib/contracts/)
-#
+include_directories( ${CMAKE_BINARY_DIR}
+                     ${EOSIO_ROOT}/eosio.contracts/contracts/eosio.token/include
+                     ${CMAKE_SOURCE_DIR}/../include
+                     ${EOSIO_CDT_ROOT}/opt/eosio.cdt/include/eosiolib/contracts/)
+
 file( GLOB KATA1_TESTS "*.cpp" "*.hpp" )
-#
+
 add_eosio_test( kata1_test ${KATA1_TESTS} )
-#
-target_compile_options( kata1_test PUBLIC -ftemplate-backtrace-limit=0 )
+
+target_compile_options( kata1_test PUBLIC -ftemplate-backtrace-limit=0)

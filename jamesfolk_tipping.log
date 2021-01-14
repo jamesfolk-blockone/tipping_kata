@@ -1,0 +1,126 @@
+US000324:tipping james.folk$ mkdir build
+US000324:tipping james.folk$ cd build/
+US000324:build james.folk$ cmake ..
+-- The C compiler identification is AppleClang 12.0.0.12000032
+-- The CXX compiler identification is AppleClang 12.0.0.12000032
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Setting up Eosio Wasm Toolchain 1.6.3 at /Users/james.folk/contracts/eosio.cdt/build
+EOSIO_CDT_ROOT = /Users/james.folk/contracts/eosio.cdt/build
+EOSIO_ROOT = /Users/james.folk/eosio/eos/build
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/james.folk/contracts/tipping/build
+US000324:build james.folk$ make
+Scanning dependencies of target tipping_project
+[  5%] Creating directories for 'tipping_project'
+[ 11%] No download step for 'tipping_project'
+[ 16%] No update step for 'tipping_project'
+[ 22%] No patch step for 'tipping_project'
+[ 27%] Performing configure step for 'tipping_project'
+-- Setting up Eosio Wasm Toolchain 1.6.3 at /Users/james.folk/contracts/eosio.cdt/build
+-- Setting up Eosio Wasm Toolchain 1.6.3 at /Users/james.folk/contracts/eosio.cdt/build
+-- The C compiler identification is Clang 7.0.0
+-- The CXX compiler identification is Clang 7.0.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) in CMakeLists.txt:
+  No cmake_minimum_required command is present.  A line of code such as
+
+    cmake_minimum_required(VERSION 3.18)
+
+  should be added at the top of the file.  The version specified may be lower
+  if you wish to support older CMake versions for this project.  For more
+  information run "cmake --help-policy CMP0000".
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done
+CMake Warning (dev) at /Users/james.folk/contracts/eosio.cdt/build/lib/cmake/eosio.cdt/EosioCDTMacros.cmake:12 (add_dependencies):
+  Policy CMP0046 is not set: Error on non-existent dependency in
+  add_dependencies.  Run "cmake --help-policy CMP0046" for policy details.
+  Use the cmake_policy command to set the policy and suppress this warning.
+
+  The dependency target
+  "/Users/james.folk/contracts/tipping/src/../ricardian/tipping.contracts.md"
+  of target "tipping" does not exist.
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (target_ricardian_directory)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Generating done
+-- Build files have been written to: /Users/james.folk/contracts/tipping/build/tipping
+[ 33%] Performing build step for 'tipping_project'
+Scanning dependencies of target tipping
+[ 50%] Building CXX object CMakeFiles/tipping.dir/tipping.obj
+Warning, empty ricardian clause file
+Warning, action <create> does not have a ricardian contract
+Warning, action <retire> does not have a ricardian contract
+Warning, action <open> does not have a ricardian contract
+Warning, action <close> does not have a ricardian contract
+Warning, action <deposit> does not have a ricardian contract
+Warning, action <withdraw> does not have a ricardian contract
+Warning, action <tip> does not have a ricardian contract
+Warning, action <create> does not have a ricardian contract
+Warning, action <retire> does not have a ricardian contract
+Warning, action <open> does not have a ricardian contract
+Warning, action <close> does not have a ricardian contract
+Warning, action <deposit> does not have a ricardian contract
+Warning, action <withdraw> does not have a ricardian contract
+Warning, action <tip> does not have a ricardian contract
+[100%] Linking CXX executable tipping.wasm
+[100%] Built target tipping
+[ 38%] No install step for 'tipping_project'
+[ 44%] No test step for 'tipping_project'
+[ 50%] Completed 'tipping_project'
+[ 50%] Built target tipping_project
+Scanning dependencies of target kata1_test_project
+[ 55%] Creating directories for 'kata1_test_project'
+[ 61%] No download step for 'kata1_test_project'
+[ 66%] No update step for 'kata1_test_project'
+[ 72%] No patch step for 'kata1_test_project'
+[ 77%] Performing configure step for 'kata1_test_project'
+-- The C compiler identification is AppleClang 12.0.0.12000032
+-- The CXX compiler identification is AppleClang 12.0.0.12000032
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Library/Developer/CommandLineTools/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Setting up Eosio Tester 2.0.9 at /Users/james.folk/eosio/eos/build
+CMake Error at /usr/local/Cellar/cmake/3.18.4/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:165 (message):
+  Could NOT find Boost (missing: date_time filesystem system chrono iostreams
+  unit_test_framework) (found suitable version "1.67.0", minimum required is
+  "1.67")
+Call Stack (most recent call first):
+  /usr/local/Cellar/cmake/3.18.4/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:458 (_FPHSA_FAILURE_MESSAGE)
+  /usr/local/Cellar/cmake/3.18.4/share/cmake/Modules/FindBoost.cmake:2177 (find_package_handle_standard_args)
+  /Users/james.folk/eosio/eos/build/lib/cmake/eosio/EosioTester.cmake:40 (find_package)
+  /usr/local/lib/cmake/eosio/eosio-config.cmake:6 (include)
+  CMakeLists.txt:7 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/james.folk/contracts/tipping/build/tests/CMakeFiles/CMakeOutput.log".
+make[2]: *** [kata1_test_project-prefix/src/kata1_test_project-stamp/kata1_test_project-configure] Error 1
+make[1]: *** [CMakeFiles/kata1_test_project.dir/all] Error 2
+make: *** [all] Error 2
+
